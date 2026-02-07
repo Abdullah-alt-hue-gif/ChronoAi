@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* SaaS Color Palette */
+  --color-primary: #4F46E5;
+  /* Indigo */
+  --color-primary-hover: #4338CA;
+  --color-secondary: #0EA5E9;
+  /* Sky Blue */
+  --color-success: #10B981;
+  /* Emerald */
+  --color-warning: #F59E0B;
+  /* Amber - adjusted slightly for visibility */
+  --color-error: #EF4444;
+  /* Red */
+
+  --color-bg-page: #F8FAFC;
+  /* Light Gray */
+  --color-bg-card: #FFFFFF;
+  /* White */
+
+  --color-text-main: #1E293B;
+  /* Dark Slate */
+  --color-text-muted: #64748B;
+  /* Gray */
+
+  /* Legacy mapping to keep code working while we refactor */
+  --color-midnight-blue: #1E293B;
+  /* Mapped to Text Main for now */
+  --color-electric-blue: #4F46E5;
+  /* Mapped to Primary */
+  --color-slate: #64748B;
+  /* Mapped to Muted */
+  --color-emerald: #10B981;
+  --color-amber: #F59E0B;
+  --color-crimson: #EF4444;
+  --color-off-white: #F8FAFC;
+
+  /* Typography & Layout */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --radius-custom: 14px;
+
+  /* SaaS Shadows */
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 12px 32px rgba(79, 70, 229, 0.15), 0 4px 12px rgba(0, 0, 0, 0.05);
+  /* Colored shadow for lift */
+}
+
+:root {
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
