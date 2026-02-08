@@ -7,6 +7,7 @@ import { api, endpoints } from '@/lib/api';
 export default function SignupPage() {
     const router = useRouter();
     const [fullName, setFullName] = useState('');
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -18,8 +19,7 @@ export default function SignupPage() {
         setIsLoading(true);
 
         try {
-            await api.post(endpoints.auth.signup, { full_name: fullName, email, password });
-            // Auto login or redirect to login? Let's redirect to login for simplicity
+            await api.post(endpoints.auth.signup, { email, username, password, full_name: fullName });
             router.push('/login');
         } catch (err: any) {
             setError(err.message || 'Signup failed');
@@ -44,13 +44,24 @@ export default function SignupPage() {
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
+                        <label className="block text-sm font-bold text-text-main mb-1">Username</label>
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={e => setUsername(e.target.value)}
+                            className="w-full px-4 py-3 rounded-xl border border-text-muted/20 focus:border-primary focus:outline-none transition-colors"
+                            placeholder="maryam123"
+                            required
+                        />
+                    </div>
+                    <div>
                         <label className="block text-sm font-bold text-text-main mb-1">Full Name</label>
                         <input
                             type="text"
                             value={fullName}
                             onChange={e => setFullName(e.target.value)}
                             className="w-full px-4 py-3 rounded-xl border border-text-muted/20 focus:border-primary focus:outline-none transition-colors"
-                            placeholder="John Doe"
+                            placeholder="Maryam"
                             required
                         />
                     </div>
